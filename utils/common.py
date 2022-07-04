@@ -85,11 +85,11 @@ def login_required(*role):
 
 
 def model_to_dict(result):
-    '''
+    """
     查询结果转换为字典
     :param result:
     :return:
-    '''
+    """
     from collections import Iterable
     # 转换完成后，删除  '_sa_instance_state' 特殊属性
     try:
@@ -108,11 +108,11 @@ def model_to_dict(result):
 
 
 def construct_page_data(data):
-    '''
+    """
     分页需要返回的数据
     :param data:
     :return:
-    '''
+    """
     page = {"page_no": data.page,  # 当前页数
             "page_size": data.per_page,  # 每页显示的属性
             "tatal_page": data.pages,  # 总共的页数
@@ -127,11 +127,11 @@ def construct_page_data(data):
 
 
 def construct_menu_data(data):
-    '''
+    """
     菜单分页需要返回的数据
     :param data:
     :return:
-    '''
+    """
     page = {"page_no": data.page,  # 当前页数
             "page_size": data.per_page,  # 每页显示的属性
             "tatal_page": data.pages,  # 总共的页数

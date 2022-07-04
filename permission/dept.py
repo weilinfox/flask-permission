@@ -52,12 +52,12 @@ def find_all():
 
 @dept.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
-        更新岗位
-        POST方法根据id返回数据
-        PUT方法更新
-        :return:
-        '''
+    """
+    更新岗位
+    POST方法根据id返回数据
+    PUT方法更新
+    :return:
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -111,10 +111,10 @@ def update():
 
 @dept.route('/create', methods=["PUT"])
 def create():
-    '''
+    """
     创建部门
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -154,10 +154,10 @@ def create():
 
 @dept.route('/delete', methods=["DELETE"])
 def delete():
-    '''
-        根据ID删除岗位
-        :return:
-        '''
+    """
+    根据ID删除岗位
+    :return:
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -184,14 +184,14 @@ def delete():
 
 
 def constructDeptTrees(parentId=0):
-    '''
+    """
     通过递归实现根据父ID查找子部门
     1.根据父ID获取该部门下的子部门
     2.遍历子部门，继续向下获取，直到最小部门
     3.如果没有遍历到，返回空的数组，有返回权限列表
     :param parentId:
     :return:dict
-    '''
+    """
     dept_data = Dept.query.filter(Dept.parent_id == parentId).order_by('order_num').all()
     dept_dict = model_to_dict(dept_data)
     if len(dept_dict) > 0:

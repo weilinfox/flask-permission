@@ -110,10 +110,10 @@ def update():
 
 @configs.route('/create', methods=["PUT"])
 def create():
-    '''
+    """
     创建参数信息
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -147,10 +147,10 @@ def create():
 
 @configs.route('/delete', methods=["DELETE"])
 def delete():
-    '''
+    """
     参数删除
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

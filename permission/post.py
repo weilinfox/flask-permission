@@ -18,10 +18,10 @@ post = Blueprint('post', __name__)
 
 @post.route('/index', methods=["POST"])
 def index():
-    '''
+    """
     获取岗位
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -53,12 +53,12 @@ def index():
 
 @post.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
-        更新岗位
-        POST方法根据id返回数据
-        PUT方法更新
-        :return:
-        '''
+    """
+    更新岗位
+    POST方法根据id返回数据
+    PUT方法更新
+    :return:
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

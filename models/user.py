@@ -42,11 +42,11 @@ class User(BaseModel):
                            onupdate=func.now())
 
     def check_password(self, passwd):
-        '''
+        """
         检查密码
         :param passwd:
         :return: 0/1
-        '''
+        """
         # 创建md5对象
         m = hashlib.md5()
         b = passwd.encode(encoding='utf-8')

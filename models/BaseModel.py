@@ -34,27 +34,27 @@ class BaseModel(db.Model):
         db.session.commit()
 
     def update(self):
-        '''
+        """
         更新数据
         :return:
-        '''
+        """
         db.session.merge(self)
         db.session.commit()
 
     def delete(self):
-        '''
+        """
         删除数据
         :return:
-        '''
+        """
         db.session.delete(self)
         db.session.commit()
 
     def save_all(self, data):
-        '''
+        """
         保存多条数据
         :param data:
         :return:
-        '''
+        """
         db.session.execute(
             self.__table__.insert(),
             data

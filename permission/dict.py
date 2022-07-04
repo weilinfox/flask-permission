@@ -104,10 +104,10 @@ def update():
 
 @dict.route('/create', methods=["PUT"])
 def create():
-    '''
+    """
     创建字典
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -141,10 +141,10 @@ def create():
 
 @dict.route('/delete', methods=["DELETE"])
 def delete():
-    '''
+    """
     根据ID删除字典
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

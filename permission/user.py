@@ -17,10 +17,10 @@ user = Blueprint('user', __name__)
 
 @user.route('/login', methods=["POST"])
 def login():
-    '''
+    """
     用户登录
     :return:token
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -64,10 +64,10 @@ def login():
 @user.route('/logout', methods=["POST"])
 @login_required()
 def logout():
-    '''
+    """
     注销方法：redis删除token
     :return:
-    '''
+    """
     try:
         token = request.headers["Authorization"]
         user = verify_token(token)
@@ -102,10 +102,10 @@ def check_token():
 
 @user.route('/index', methods=["POST"])
 def index():
-    '''
+    """
     获取用户
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -146,12 +146,12 @@ def index():
 
 @user.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
+    """
     更新角色
     POST方法根据id返回数据
     PUT方法更新
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -225,10 +225,10 @@ def update():
 
 @user.route('/create', methods=["PUT"])
 def create():
-    '''
+    """
     创建用户
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -297,10 +297,10 @@ def create():
 
 @user.route('/delete', methods=["DELETE"])
 def delete():
-    '''
+    """
     根据id删除用户
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -322,11 +322,11 @@ def delete():
 
 
 def find_childern(dept):
-    '''
-     获取部门下的子部门ID元祖
-     :param dept:
+    """
+    获取部门下的子部门ID元祖
+    :param dept:
     :return: tuple
-     '''
+    """
     dept_ids = [dept.id]
     dept_id = get_dept_by_parentId(dept.id)
     dept_ids += dept_id
@@ -334,11 +334,11 @@ def find_childern(dept):
 
 
 def get_dept_by_parentId(parentId):
-    '''
+    """
     递归查找部门和子部门id
     :param parentId:
     :return:
-    '''
+    """
     dept_data = Dept.query.filter(Dept.parent_id == parentId).all()
     if len(dept_data) > 0:
         data = []

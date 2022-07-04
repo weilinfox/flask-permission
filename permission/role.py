@@ -18,10 +18,10 @@ role = Blueprint('role', __name__)
 
 @role.route('/index', methods=["POST"])
 def index():
-    '''
+    """
     获取角色
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -56,12 +56,12 @@ def index():
 
 @role.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
+    """
     更新角色
     POST方法根据id返回数据
     PUT方法更新
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -130,10 +130,10 @@ def update():
 
 @role.route('/create', methods=["PUT"])
 def create():
-    '''
+    """
     创建角色
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -185,10 +185,10 @@ def create():
 
 @role.route('/delete', methods=["DELETE"])
 def delete():
-    '''
+    """
     根据ID删除角色
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

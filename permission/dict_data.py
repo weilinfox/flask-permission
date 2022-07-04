@@ -107,12 +107,12 @@ def create():
 
 @dictData.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
+    """
     更新字典数据
     POST方法根据id返回数据
     PUT方法更新
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -167,10 +167,10 @@ def update():
 
 @dictData.route('/delete', methods=["DELETE"])
 def delete():
-    '''
+    """
     根据id删除字典数据
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
