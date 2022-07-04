@@ -14,6 +14,10 @@
 LOG_LEVEL = "DEBUG"
 LOG_DIR_NAME = "logs"
 
+# server
+SERVER_HOST = "127.0.0.1"
+SERVER_PORT = 5000
+
 # mysql
 MYSQL = {"HOST": "127.0.0.1",
          'PORT': "3306",

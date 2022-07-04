@@ -35,11 +35,11 @@ def create_app():
 
 
 def register_blueprints(app):
-    '''
+    """
     创建蓝图
     :param app:
     :return:
-    '''
+    """
     app.register_blueprint(user.user, url_prefix='/api/user')
     app.register_blueprint(menu.menu, url_prefix='/api/menu')
     app.register_blueprint(dict.dict, url_prefix='/api/dict')
@@ -52,11 +52,11 @@ def register_blueprints(app):
 
 
 def init_db(app):
-    '''
+    """
     加载数据库
     :param app:
     :return:
-    '''
+    """
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://{}:{}@{}:{}/{}'.format(config.MYSQL['USER'],
                                                                             config.MYSQL['PASSWD'],
                                                                             config.MYSQL['HOST'],
@@ -67,11 +67,11 @@ def init_db(app):
 
 
 def init_redis(app):
-    '''
+    """
     加载redis
     :param app:
     :return:
-    '''
+    """
     app.config['REDIS_HOST'] = config.REDIS['HOST']
     app.config['REDIS_PORT'] = config.REDIS['PORT']
     app.config['REDIS_DB'] = config.REDIS['DB']
@@ -103,4 +103,4 @@ def handle_error(err):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host=config.SERVER_HOST, port=config.SERVER_PORT)

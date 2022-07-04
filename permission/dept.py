@@ -17,10 +17,10 @@ dept = Blueprint('dept', __name__)
 
 @dept.route('/findall', methods=["POST"])
 def find_all():
-    '''
+    """
     获取部门信息
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

@@ -17,10 +17,10 @@ configs = Blueprint('configs', __name__)
 
 @configs.route('/index', methods=["POST"])
 def index():
-    '''
+    """
     获取参数信息
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
@@ -58,12 +58,12 @@ def index():
 
 @configs.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
-       更新参数
-       POST方法根据id返回数据
-       PUT方法更新
-       :return:
-       '''
+    """
+    更新参数
+    POST方法根据id返回数据
+    PUT方法更新
+    :return:
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()

@@ -45,9 +45,9 @@ class Redis(object):
 
     @classmethod
     def write_dict(self, key, value, expire=None):
-        '''
+        """
         将内存数据二进制通过序列号转为文本流，再存入redis
-        '''
+        """
         if expire:
             expire_in_seconds = expire
         else:
@@ -55,13 +55,11 @@ class Redis(object):
         r = self._get_r()
         r.set(key, pickle.dumps(value), ex=expire_in_seconds)
 
-
-
     @classmethod
     def read_dict(self, key):
-        '''
+        """
         将文本流从redis中读取并反序列化，返回
-        '''
+        """
         r = self._get_r()
         data = r.get(key)
         if data is None:
@@ -122,7 +120,7 @@ class Redis(object):
     @classmethod
     def hdel(self, name, key):
         """
-		删除指定hash表的键值
+        删除指定hash表的键值
         """
         r = self._get_r()
         r.hdel(name, key)

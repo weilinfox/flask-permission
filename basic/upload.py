@@ -18,7 +18,7 @@ from basic import *
 
 upload = Blueprint('upload', __name__)
 
-#允许的后缀名
+# 允许的后缀名
 ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg']
 
 
@@ -53,14 +53,13 @@ def head_image():
         return UPLOAD_FAILD("上传头像失败")
 
 
-
 def is_over_size(file, max_size):
-    '''
+    """
     判断文件大小是否超出限制
     :param file:
-    :param M:
+    :param max_size:
     :return:
-    '''
+    """
     size = len(file.read())
     file.seek(0)
     if size / (1024 * 1024) > int(max_size):

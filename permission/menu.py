@@ -198,7 +198,7 @@ def update():
 
 
 def constructMenuTrees(parentId=0, user_id=None):
-    '''
+    """
     通过递归实现根据父ID查找子菜单,如果传入用户id则只查询该用户的权限否则查询所有权限,一级菜单父id默认是0
     1.根据父ID获取该菜单下的子菜单或权限
     2.遍历子菜单或权限，继续向下获取，直到最小级菜单或权限
@@ -206,11 +206,11 @@ def constructMenuTrees(parentId=0, user_id=None):
     :param user_id:
     :param parentId:
     :return:dict
-    '''
+    """
     if user_id:
-        menu_data = Menu.query.join(Role_Menu, Menu.id == Role_Menu.menu_id).join(User_Role,
-                                                                                  User_Role.role_id == Role_Menu.role_id).filter(
-            User_Role.user_id == user_id).filter(Menu.parent_id == parentId).order_by('order_num').all()
+        menu_data = Menu.query.join(Role_Menu, Menu.id == Role_Menu.menu_id) \
+            .join(User_Role, User_Role.role_id == Role_Menu.role_id).filter(User_Role.user_id == user_id) \
+            .filter(Menu.parent_id == parentId).order_by('order_num').all()
     else:
         menu_data = Menu.query.filter(Menu.parent_id == parentId).order_by('order_num').all()
     menu_dict = menu_to_dict(menu_data)
@@ -224,11 +224,11 @@ def constructMenuTrees(parentId=0, user_id=None):
 
 
 def menu_to_dict(result):
-    '''
+    """
     格式化菜单字段显示顺序
     :param result:
     :return:
-    '''
+    """
     data = []
     for menu in result:
         child = {

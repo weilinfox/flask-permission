@@ -26,10 +26,10 @@ class BaseModel(db.Model):
     remark = db.Column(db.String(500), comment="备注")
 
     def save(self):
-        '''
+        """
         新增数据
         :return:
-        '''
+        """
         db.session.add(self)
         db.session.commit()
 

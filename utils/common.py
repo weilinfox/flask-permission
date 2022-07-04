@@ -19,15 +19,16 @@ from flask import request, jsonify, current_app as app
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 from conf import config
+from permission.menu import menu_to_dict
 from utils.code_enum import Code
 
 
 def create_token(user_id, user_name, role_list):
-    '''
+    """
     生成token
     :param api_user:用户id
     :return: token
-    '''
+    """
     # 第一个参数是内部的私钥，这里写在共用的配置信息里了，如果只是测试可以写死
     # 第二个参数是有效期(秒)
     s = Serializer(config.SECRET_KEY, expires_in=config.EXPIRES_IN)
@@ -41,11 +42,11 @@ def create_token(user_id, user_name, role_list):
 
 
 def verify_token(token):
-    '''
+    """
     校验token
     :param token:
     :return: 用户信息 or None
-    '''
+    """
     # 参数为私有秘钥，跟上面方法的秘钥保持一致
     s = Serializer(config.SECRET_KEY)
     try:

@@ -52,12 +52,12 @@ def index():
 
 @dict.route('/update', methods=["POST", "PUT"])
 def update():
-    '''
+    """
     更新字典
     POST方法根据id返回数据
     PUT方法更新
     :return:
-    '''
+    """
     res_dir = request.get_json()
     if res_dir is None:
         return NO_PARAMETER()
