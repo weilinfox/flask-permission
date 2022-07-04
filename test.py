@@ -1,7 +1,7 @@
 # !/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-@Author         :  Huguodong
+@Author         :  weilinfox
 @Version        :  
 ------------------------------------
 @File           :  test.py
@@ -16,6 +16,7 @@ import random
 import time
 from datetime import datetime
 
+
 def create_passwd(passwd):
     # 创建md5对象
     m = hashlib.md5()
@@ -23,5 +24,6 @@ def create_passwd(passwd):
     m.update(b)
     str_md5 = m.hexdigest()
     return str_md5
+
 
 print(create_passwd("admins"))
